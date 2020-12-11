@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h2>Approve this client?</h2>
+    {% if client.client_name %}
+    <p><b>Name:</b> <code>{{ client.client_name }}</code></p>
+    {% endif %}
+    {% if client.client_id %}
+    <p><b>ID:</b> <code>{{ client.client_id }}</code></p>
+    {% endif %}
+    {% if client.client_uri %}
+    <p><b>URI:</b> <code>{{ client.client_uri }}</code></p>
+    {% endif %}
+
+    <form class="form" action="/approve" method="POST">
+        <input type="hidden" name="request_id" value="{{ request_id }}">
+        {% if scope %}
+        <p>The client is requesting access to the following:</p>
+        <ul>
+            {% for s in scope %}
+            <li><input type="checkbox" name="scope_{{ s }}" id="scope_{{ s }}" checked="checked">
+                <label for="scope_{{ s }}">{{ s }}</label></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <input type="submit" name="approve" value="Approve">
+        <input type="submit" name="deny" value="Deny">
+    </form>
+</div>
+{% endblock %}

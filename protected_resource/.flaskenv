@@ -1,0 +1,4 @@
+FLASK_APP=protected_resource.py
+FLASK_RUN_HOST=localhost
+FLASK_RUN_PORT=5002
+FLASK_ENV=development

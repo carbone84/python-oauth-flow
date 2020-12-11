@@ -1,0 +1,4 @@
+FLASK_APP=authorization_server.py
+FLASK_RUN_HOST=localhost
+FLASK_RUN_PORT=5001
+FLASK_ENV=development

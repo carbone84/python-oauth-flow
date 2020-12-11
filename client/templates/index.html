@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <a href="{{ url_for('authorize') }}">Get OAuth Token</a>
+    <a href="{{ url_for('fetch_resource') }}">Get Protected Resource</a>
+    {% if content %}<p>{{ content }}</p>{% endif %}
+    {% if access_token %}<p>{{ access_token }}</p>{% endif %}
+    {% if scope %}<p>{{ scope }}</p>{% endif %}
+</div>
+{% endblock %}
